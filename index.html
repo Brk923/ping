@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrgencyBridge | Digital Doorbell</title>
+    <meta name="description" content="Reach anyone in an emergency, even if they've deleted social media.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body class="emergency-dark">
+    <header>
+        <div class="logo">UrgencyBridge</div>
+        <nav>
+            <button id="nav-home" class="nav-btn active">Home</button>
+            <button id="nav-register" class="nav-btn">Register</button>
+        </nav>
+    </header>
+
+    <main id="app-container">
+        <!-- Home / Search Section -->
+        <section id="search-section" class="view active">
+            <div class="container">
+                <h1 class="hero-text">Emergency Doorbell</h1>
+                <p class="subtitle">Enter their Unique ID to trigger a Priority Alert.</p>
+                <div class="input-group">
+                    <input type="text" id="target-id" placeholder="@Unique_ID" aria-label="Unique ID">
+                </div>
+                <div class="input-group">
+                    <textarea id="urgency-reason" placeholder="What's the emergency?" maxlength="140"></textarea>
+                </div>
+                <button id="trigger-alert" class="btn btn-primary btn-large">TRIGGER ALERT</button>
+                <div id="search-status" class="status-msg"></div>
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="register-section" class="view">
+            <div class="container">
+                <h1>Secure Your ID</h1>
+                <p class="subtitle">Map your email to a Unique ID for urgent reachability.</p>
+                <div class="input-group">
+                    <input type="text" id="new-unique-id" placeholder="Create Unique ID (e.g., @Rahul_K)" aria-label="New Unique ID">
+                </div>
+                <div class="input-group">
+                    <input type="email" id="user-email" placeholder="Your Private Email" aria-label="Email Address">
+                </div>
+                <button id="complete-registration" class="btn btn-accent btn-large">REGISTER ID</button>
+                <div id="register-status" class="status-msg"></div>
+            </div>
+        </section>
+
+        <!-- Chat / Bridge Section -->
+        <section id="chat-section" class="view">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div id="chat-with">The Bridge</div>
+                    <button id="end-session" class="btn btn-danger">End Session</button>
+                </div>
+                <div id="chat-messages" class="messages-area"></div>
+                <div class="chat-input-row">
+                    <input type="text" id="message-input" placeholder="Type your message..." aria-label="Message">
+                    <button id="send-message" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- EmailJS Client -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
